@@ -8,7 +8,7 @@ A collection of React projects demonstrating various concepts and features.
 
 | Project Number | Project Title               | Source Code                                                                                     | Live Demo Link                                                          |
 | -------------- | --------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| 01             | [Counter App](#counter-app) | [Source Code](https://github.com/your-username/react-projects/blob/main/counter-app/src/App.js) | [Live Demo](https://your-username.github.io/react-projects/counter-app) |
+| 01             | [Counter App](#counter-app) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/counter-app) | [Live Demo](https://counthub.netlify.app/) |
 
 [Jump to Top](#top)
 
@@ -21,8 +21,8 @@ A collection of React projects demonstrating various concepts and features.
   - Reset the counter value to 0.
   - Styled buttons with hover effects and disabled states.
 - **Technologies Used**: React, styled-components
-- **Source Code**: [Counter App](https://github.com/your-username/react-projects/blob/main/counter-app/src/App.js)
-- **Live Demo**: [Counter App Demo](https://your-username.github.io/react-projects/counter-app)
+- **Source Code**: [Counter App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/counter-app)
+- **Live Demo**: [Counter App Demo](https://counthub.netlify.app/)
 - **Use case**: A basic example of state management in React.
 - **Topics Covered**: React useState, event handling, styled-components.
 
