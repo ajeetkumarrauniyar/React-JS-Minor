@@ -21,7 +21,7 @@ The buttons have been styled to disable when certain conditions are met (e.g., d
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/ajeetkumarrauniyar/React-JS-Minor/counter-app.git
+   git clone https://github.com/ajeetkumarrauniyar/React-JS-Minor.git
    ```
 
 2. Navigate to the project directory:
