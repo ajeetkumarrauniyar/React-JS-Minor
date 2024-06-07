@@ -9,7 +9,7 @@ A collection of React projects demonstrating various concepts and features.
 | Project Number | Project Title                                                 | Source Code                                                                                            | Live Demo Link                             |
 | -------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
 | 01             | [Counter App](#counter-app)                                   | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/counter-app)              | [Live Demo](https://counthub.netlify.app/) |
-| 02             | [Background Color Changer App](#background-color-changer-app) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/background-color-changer) | [Live Demo](#)                             |
+| 02             | [Background Color Changer App](#background-color-changer-app) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/background-color-changer) | [Live Demo](https://chromashift.netlify.app/)                             |
 
 [Jump to Top](#top)
 
@@ -38,7 +38,7 @@ A collection of React projects demonstrating various concepts and features.
   - Buttons styled with hover effects and focus outlines for accessibility.
 - **Technologies Used**: React, Tailwind CSS
 - **Source Code**: [Background Color Changer App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/background-color-changer)
-- **Live Demo**: [Background Color Changer App Demo](#)
+- **Live Demo**: [Background Color Changer App Demo](https://chromashift.netlify.app/)
 - **Use case**: Demonstrates how to dynamically change styles using state in React.
 - **Topics Covered**: React useState, event handling, Tailwind CSS integration.
 
