@@ -6,14 +6,15 @@ A collection of React projects demonstrating various concepts and features.
 
 ## Projects
 
-| Project Number | Project Title                                                 | Source Code                                                                                            | Live Demo Link                             |
-| -------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
-| 01             | [Counter App](#counter-app)                                   | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/counter-app)              | [Live Demo](https://counthub.netlify.app/) |
-| 02             | [Background Color Changer App](#background-color-changer-app) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/background-color-changer) | [Live Demo](https://chromashift.netlify.app/)                             |
+| Project Number | Project Title                                                   | Source Code                                                                                             | Live Demo Link                                |
+| -------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| 01             | [Counter App](#counter-app)                                     | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/counter-app)               | [Live Demo](https://counthub.netlify.app/)    |
+| 02             | [Background Color Changer App](#background-color-changer-app)   | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/background-color-changer)  | [Live Demo](https://chromashift.netlify.app/) |
+| 03             | [Random Password Generator App](#random-password-generator-app) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator) | [Live Demo](#)                                |
 
 [Jump to Top](#top)
 
-## Counter App
+### Counter App
 
 - **Description**: A simple counter application built with React and styled-components. Users can increment, decrement, and reset the counter value.
 - **Features**:
@@ -29,7 +30,7 @@ A collection of React projects demonstrating various concepts and features.
 
 [Jump to Top](#top)
 
-## Background Color Changer App
+### Background Color Changer App
 
 - **Description**: A simple color-changing application built with React and Tailwind CSS. Users can change the background color of the screen by clicking on different buttons.
 - **Features**:
@@ -43,3 +44,17 @@ A collection of React projects demonstrating various concepts and features.
 - **Topics Covered**: React useState, event handling, Tailwind CSS integration.
 
 [Jump to Top](#top)
+
+### Random Password Generator
+
+- **Description**:It allows users to generate passwords with customizable length and the option to include numbers and special characters. The generated password can be copied to the clipboard with a single click.
+- **Features**:
+  - Generate passwords with a customizable length (4 to 20 characters).
+  - Option to include numbers in the generated password.
+  - Option to include special characters in the generated password.
+  - Copy the generated password to the clipboard with a single click.
+  - Responsive design with a clean and modern UI.
+- **Technologies Used**: React, Tailwind CSS
+- **Source Code**: [Random Password Generator App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator)
+- **Live Demo**: [Random Password Generator App Demo](#)
+- **Hooks Covered**: React useState, useCallback, useEffect, useRef
