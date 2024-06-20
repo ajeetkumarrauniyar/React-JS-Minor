@@ -10,7 +10,7 @@ A collection of React projects demonstrating various concepts and features.
 | -------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | 01             | [Counter App](#counter-app)                                     | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/counter-app)               | [Live Demo](https://counthub.netlify.app/)    |
 | 02             | [Background Color Changer App](#background-color-changer-app)   | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/background-color-changer)  | [Live Demo](https://chromashift.netlify.app/) |
-| 03             | [Random Password Generator App](#random-password-generator-app) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator) | [Live Demo](#)                                |
+| 03             | [Random Password Generator App](#random-password-generator-app) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator) | [Live Demo](https://secure-key-master.onrender.com/)                                |
 
 [Jump to Top](#top)
 
@@ -56,5 +56,5 @@ A collection of React projects demonstrating various concepts and features.
   - Responsive design with a clean and modern UI.
 - **Technologies Used**: React, Tailwind CSS
 - **Source Code**: [Random Password Generator App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator)
-- **Live Demo**: [Random Password Generator App Demo](#)
+- **Live Demo**: [Random Password Generator App Demo](https://secure-key-master.onrender.com/)
 - **Hooks Covered**: React useState, useCallback, useEffect, useRef
