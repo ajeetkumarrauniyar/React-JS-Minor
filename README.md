@@ -6,15 +6,15 @@ A collection of React projects demonstrating various concepts and features.
 
 ## Projects
 
-| Project Number | Project Title                                                         | Source Code                                                                                               | Live Demo Link                                       |
-| -------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| 01             | [Counter App](#counter-app)                                           | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/counter-app)                 | [Live Demo](https://counthub.netlify.app/)           |
-| 02             | [Background Color Changer App](#background-color-changer-app)         | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/background-color-changer)    | [Live Demo](https://chromashift.netlify.app/)        |
-| 03             | [Random Password Generator App](#random-password-generator-app)       | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator)   | [Live Demo](https://secure-key-master.onrender.com/) |
-| 04             | [RateMate: Currency Converter App](#currency-converter-app)           | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/ratemate-currency-converter) | [Live Demo](#)                                       |
-| 05             | [RouterRoads: React Router App](#routerroads-react-router)            | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/routerroads-react-router)    | [Live Demo](#)                                       |
-| 06             | [ContextUser : React Context API  App](#contextuser-context-api)      | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextuser-context-api)     | [Live Demo](https://contextuser.netlify.app/)                                       |
-| 07             | [ContextColors : React Context API App](#contextcolors-context-api)   | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextcolors-context-api)   | [Live Demo](#)                                       |
+| Project Number | Project Title                                                                                     | Source Code                                                                                                            | Live Demo Link                                       |
+| -------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| 01             | [Counter App](#counter-app)                                                                       | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/counter-app)                              | [Live Demo](https://counthub.netlify.app/)           |
+| 02             | [Background Color Changer App](#background-color-changer-app)                                     | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/background-color-changer)                 | [Live Demo](https://chromashift.netlify.app/)        |
+| 03             | [Random Password Generator App](#random-password-generator-app)                                   | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator)                | [Live Demo](https://secure-key-master.onrender.com/) |
+| 04             | [RateMate: Currency Converter App](#currency-converter-app)                                       | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/ratemate-currency-converter)              | [Live Demo](#)                                       |
+| 05             | [RouterRoads: React Router App](#routerroads-react-router)                                        | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/routerroads-react-router)                 | [Live Demo](#)                                       |
+| 06             | [ContextUser : React Context API App](#contextuser-context-api)                                   | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextuser-context-api)                  | [Live Demo](https://contextuser.netlify.app/)        |
+| 07             | [ContextColors : React Context API Theme Switcher App](#contextcolors-context-api-theme-switcher) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextcolors-context-api-theme-switcher) | [Live Demo](https://contextcolors.netlify.app/)      |
 
 [Jump to Top](#top)
 
@@ -63,9 +63,15 @@ A collection of React projects demonstrating various concepts and features.
 - **Live Demo**: [Random Password Generator App Demo](https://secure-key-master.onrender.com/)
 - **Hooks Covered**: React useState, useCallback, useEffect, useRef
 
+[Jump to Top](#top)
+
 ### RateMate: Currency Converter App
 
+[Jump to Top](#top)
+
 ### RouterRoads: React Router App
+
+[Jump to Top](#top)
 
 ### ContextUser : React Context API
 
@@ -81,4 +87,16 @@ A collection of React projects demonstrating various concepts and features.
 - **Live Demo**: [Random Password Generator App Demo](https://contextuser.netlify.app/)
 - **Hooks Covered**: React useState, useContext
 
-### ContextColors : React Context API
+[Jump to Top](#top)
+
+### ContextColors : React Context API Theme Switcher
+
+- **Description**: This React application provides a theme toggle feature with a product card display. The theme can be switched between light and dark modes using a toggle button.
+- **Features**:
+  - Theme toggle between light and dark modes
+  - Product card display with image, name, price, and "Add to Cart" button
+  - Responsive design
+- **Technologies Used**: React, Tailwind CSS
+- **Source Code**: [Context User: Context API App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextcolors-context-api-theme-switcher)
+- **Live Demo**: [Random Password Generator App Demo](https://contextcolors.netlify.app/)
+- **Hooks Covered**: React useState, useContext, custom hooks
