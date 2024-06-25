@@ -6,11 +6,15 @@ A collection of React projects demonstrating various concepts and features.
 
 ## Projects
 
-| Project Number | Project Title                                                   | Source Code                                                                                             | Live Demo Link                                |
-| -------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| 01             | [Counter App](#counter-app)                                     | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/counter-app)               | [Live Demo](https://counthub.netlify.app/)    |
-| 02             | [Background Color Changer App](#background-color-changer-app)   | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/background-color-changer)  | [Live Demo](https://chromashift.netlify.app/) |
-| 03             | [Random Password Generator App](#random-password-generator-app) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator) | [Live Demo](https://secure-key-master.onrender.com/)                                |
+| Project Number | Project Title                                                         | Source Code                                                                                               | Live Demo Link                                       |
+| -------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| 01             | [Counter App](#counter-app)                                           | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/counter-app)                 | [Live Demo](https://counthub.netlify.app/)           |
+| 02             | [Background Color Changer App](#background-color-changer-app)         | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/background-color-changer)    | [Live Demo](https://chromashift.netlify.app/)        |
+| 03             | [Random Password Generator App](#random-password-generator-app)       | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator)   | [Live Demo](https://secure-key-master.onrender.com/) |
+| 04             | [RateMate: Currency Converter App](#currency-converter-app)           | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/ratemate-currency-converter) | [Live Demo](#)                                       |
+| 05             | [RouterRoads: React Router App](#routerroads-react-router)            | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/routerroads-react-router)    | [Live Demo](#)                                       |
+| 06             | [ContextUser : React Context API  App](#contextuser-context-api)      | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextuser-context-api)     | [Live Demo](https://contextuser.netlify.app/)                                       |
+| 07             | [ContextColors : React Context API App](#contextcolors-context-api)   | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextcolors-context-api)   | [Live Demo](#)                                       |
 
 [Jump to Top](#top)
 
@@ -58,3 +62,23 @@ A collection of React projects demonstrating various concepts and features.
 - **Source Code**: [Random Password Generator App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator)
 - **Live Demo**: [Random Password Generator App Demo](https://secure-key-master.onrender.com/)
 - **Hooks Covered**: React useState, useCallback, useEffect, useRef
+
+### RateMate: Currency Converter App
+
+### RouterRoads: React Router App
+
+### ContextUser : React Context API
+
+- **Description**: This project demonstrates the use of React's Context API to manage user authentication and profile information across a React application. It includes login and signup forms and a profile page that displays user information once logged in or signed up.
+- **Features**:
+  - Login form to authenticate users.
+  - Signup form to register new users.
+  - Profile page to display logged-in user information.
+  - State management using Context API.
+  - Simple and clean code structure for easy understanding and modification.
+- **Technologies Used**: React
+- **Source Code**: [Context User: Context API App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextuser-context-api)
+- **Live Demo**: [Random Password Generator App Demo](https://contextuser.netlify.app/)
+- **Hooks Covered**: React useState, useContext
+
+### ContextColors : React Context API
