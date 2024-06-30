@@ -15,6 +15,7 @@ A collection of React projects demonstrating various concepts and features.
 | 05             | [RouterRoads: React Router App](#routerroads-react-router)                                        | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/routerroads-react-router)                 | [Live Demo](#)                                       |
 | 06             | [ContextUser : React Context API App](#contextuser-context-api)                                   | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextuser-context-api)                  | [Live Demo](https://contextuser.netlify.app/)        |
 | 07             | [ContextColors : React Context API Theme Switcher App](#contextcolors-context-api-theme-switcher) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextcolors-context-api-theme-switcher) | [Live Demo](https://contextcolors.netlify.app/)      |
+| 08             | [TaskMaster : React Context API ToDo List App](#taskMaster-context-api) | [Source Code](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/taskMaster-context-api)                                             | [Live Demo](#)      |
 
 [Jump to Top](#top)
 
@@ -51,7 +52,7 @@ A collection of React projects demonstrating various concepts and features.
 
 ### Random Password Generator
 
-- **Description**:It allows users to generate passwords with customizable length and the option to include numbers and special characters. The generated password can be copied to the clipboard with a single click.
+- **Description**: It allows users to generate passwords with customizable length and the option to include numbers and special characters. The generated password can be copied to the clipboard with a single click.
 - **Features**:
   - Generate passwords with a customizable length (4 to 20 characters).
   - Option to include numbers in the generated password.
@@ -61,6 +62,7 @@ A collection of React projects demonstrating various concepts and features.
 - **Technologies Used**: React, Tailwind CSS
 - **Source Code**: [Random Password Generator App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/random-password-generator)
 - **Live Demo**: [Random Password Generator App Demo](https://secure-key-master.onrender.com/)
+- **Use case**: 
 - **Hooks Covered**: React useState, useCallback, useEffect, useRef
 
 [Jump to Top](#top)
@@ -84,7 +86,7 @@ A collection of React projects demonstrating various concepts and features.
   - Simple and clean code structure for easy understanding and modification.
 - **Technologies Used**: React
 - **Source Code**: [Context User: Context API App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextuser-context-api)
-- **Live Demo**: [Random Password Generator App Demo](https://contextuser.netlify.app/)
+- **Live Demo**: [Context User: Context API App Demo](https://contextuser.netlify.app/)
 - **Hooks Covered**: React useState, useContext
 
 [Jump to Top](#top)
@@ -97,6 +99,8 @@ A collection of React projects demonstrating various concepts and features.
   - Product card display with image, name, price, and "Add to Cart" button
   - Responsive design
 - **Technologies Used**: React, Tailwind CSS
-- **Source Code**: [Context User: Context API App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextcolors-context-api-theme-switcher)
-- **Live Demo**: [Random Password Generator App Demo](https://contextcolors.netlify.app/)
+- **Source Code**: [Context Colors: Context API App](https://github.com/ajeetkumarrauniyar/React-JS-Minor/tree/main/contextcolors-context-api-theme-switcher)
+- **Live Demo**: [Context Colors: Context API App Demo](https://contextcolors.netlify.app/)
 - **Hooks Covered**: React useState, useContext, custom hooks
+
+### TaskMaster : React Context API ToDo List App
