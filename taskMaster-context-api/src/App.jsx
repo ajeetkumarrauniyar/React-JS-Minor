@@ -1,6 +1,5 @@
-import { useState } from "react";
-import AddTask from "./components/AddTask";
-import TaskList from "./components/TaskList";
+import { useState, useEffect } from "react";
+import { AddTask, TaskList } from "./components";
 import { TodoContextProvider } from "./contexts/TodoContext";
 
 function App() {
@@ -25,12 +24,22 @@ function App() {
   const toggleCompleteTodo = (id) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
-        todo.id === id
-          ? { ...todo, completed: !todo.completed }
-          : todo
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };
+
+  useEffect(() => {
+    const storedTodos = JSON.parse(localStorage.getItem("todos"));
+
+    if (storedTodos && storedTodos.length > 0) {
+      setTodos(storedTodos);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <TodoContextProvider
