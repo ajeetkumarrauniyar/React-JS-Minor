@@ -5,6 +5,8 @@ import SchoolLogo from "./assets/logo.jpg";
 
 const RegistrationForm = () => {
   const [serialNumber, setSerialNumber] = useState(1);
+  const [selectedClass, setSelectedClass] = useState("");
+  const [selectedSection, setSelectedSection] = useState("");
 
   const addNewEntry = () => {
     // Logic to add a new entry goes here...
@@ -42,6 +44,19 @@ const RegistrationForm = () => {
 
     const dayAndDate = `${month} ${date}, ${year}`;
     return dayAndDate;
+  };
+  
+  const handleClassChange = (event) => {
+    const classValue = event.target.value;
+    setSelectedClass(classValue);
+
+    if (["1", "2", "3"].includes(classValue)) {
+      setSelectedSection("junior"); // Auto-select Junior
+    } else if (["4", "5", "6"].includes(classValue)) {
+      setSelectedSection("senior"); // Auto-select Senior
+    } else {
+      setSelectedSection(""); // Reset Section if no class is selected or invalid value
+    }
   };
 
   return (
@@ -132,11 +147,20 @@ const RegistrationForm = () => {
             >
               Class
             </label>
-            <input
-              className="form-input mt-1 block w-full"
+            <select
               id="class"
-              placeholder=""
-            />
+              className="form-select mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              value={selectedClass}
+              onChange={handleClassChange}
+            >
+              <option value="">Select Class</option>
+              <option value="1">Class 1</option>
+              <option value="2">Class 2</option>
+              <option value="3">Class 3</option>
+              <option value="4">Class 4</option>
+              <option value="5">Class 5</option>
+              <option value="6">Class 6</option>
+            </select>
           </div>
           <div className="flex-1">
             <label
@@ -145,11 +169,16 @@ const RegistrationForm = () => {
             >
               Section
             </label>
-            <input
-              className="form-input mt-1 block w-full"
+            <select
               id="section"
-              placeholder=""
-            />
+              className="form-select mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              value={selectedSection}
+              onChange={(e) => setSelectedSection(e.target.value)} // Optionally handle manual changes
+            >
+              <option value="">Select Section</option>
+              <option value="junior">Junior</option>
+              <option value="senior">Senior</option>
+            </select>
           </div>
         </div>
 
@@ -319,6 +348,7 @@ const RegistrationForm = () => {
             />
           </div>
         </>
+
         {/* Father's Qualification and Occupation */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
