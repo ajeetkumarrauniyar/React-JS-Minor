@@ -41,24 +41,12 @@ const states = [
 ];
 
 const RegistrationForm = () => {
-  const [serialNumber, setSerialNumber] = useState(1);
+  const [serialNumber, setSerialNumber] = useState(101);
   const [admissionNo, setAdmissionNo] = useState("");
   const [selectedClass, setSelectedClass] = useState("");
   const [selectedSection, setSelectedSection] = useState("");
   const [selectedState, setSelectedState] = useState("Bihar");
   const [photo, setPhoto] = useState(null);
-
-  const addNewEntry = (e) => {
-    e.preventDefault();
-    const newAdmissionNo = generateAdmissionNo(serialNumber);
-    setAdmissionNo(newAdmissionNo);
-    // Increment serial number
-    setSerialNumber((prevNumber) => prevNumber + 1);
-  };
-
-  const printForm = () => {
-    window.print();
-  };
 
   const getTodayDayAndDate = () => {
     // Custom date format "August 10, 2024
@@ -109,7 +97,20 @@ const RegistrationForm = () => {
     const year = new Date().getFullYear();
     const formattedSerialNo = String(serialNumber).padStart(3, "0"); // Format the serial number with leading zeros
 
-    return `${prefix}-${year}-${formattedSerialNo}`;
+    return `${prefix}${year}${formattedSerialNo}`;
+  };
+
+  const addNewEntry = (e) => {
+    e.preventDefault();
+
+    const newAdmissionNo = generateAdmissionNo(serialNumber);
+    setAdmissionNo(newAdmissionNo);
+    // Increment serial number
+    setSerialNumber((prevNumber) => prevNumber + 1);
+  };
+
+  const printForm = () => {
+    window.print();
   };
 
   useEffect(() => {
@@ -255,7 +256,7 @@ const RegistrationForm = () => {
               <input
                 className="form-input mt-1 block w-full"
                 id="student_name"
-                placeholder=""
+                placeholder="Enter Full Name"
               />
             </div>
 
@@ -263,30 +264,31 @@ const RegistrationForm = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1 form-group">
                 <label
-                  htmlFor="stud_phone_no"
+                  htmlFor="student_phone_no"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Phone No.
                 </label>
                 <input
                   className="form-input mt-1 block w-full"
-                  id="stud_phone_no"
-                  placeholder=""
+                  id="student_phone_no"
+                  placeholder="Enter 10-digit Phone Number"
                   type="tel"
+                  maxLength={10}
                 />
               </div>
 
               <div className="flex-1 form-group">
                 <label
-                  htmlFor="stud_email"
+                  htmlFor="student_email"
                   className="block text-sm font-medium text-gray-700"
                 >
                   E-mail Address
                 </label>
                 <input
                   className="form-input mt-1 block w-full"
-                  id="stud_email"
-                  placeholder="abc@example.com"
+                  id="student_email"
+                  placeholder="example@example.com"
                   type="email"
                 />
               </div>
@@ -366,20 +368,35 @@ const RegistrationForm = () => {
                   Female
                 </label>
               </div>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  id="other"
+                  name="sex"
+                  value="other"
+                  className="form-radio text-blue-600"
+                />
+                <label
+                  htmlFor="other"
+                  className="text-sm font-medium text-gray-700"
+                >
+                  Other
+                </label>
+              </div>
             </div>
           </div>
-          {/* DOB */}
+          {/* date_of_birth */}
           <div className="flex-1 form-group">
             <label
-              htmlFor="dob"
+              htmlFor="date_of_birth"
               className="block text-sm font-medium text-gray-700"
             >
               Date of Birth
             </label>
             <input
               className="form-input mt-1 block w-full"
-              id="dob"
-              placeholder=""
+              id="date_of_birth"
+              placeholder="Select Date of Birth"
               type="date"
             />
           </div>
@@ -394,8 +411,13 @@ const RegistrationForm = () => {
             <input
               className="form-input mt-1 block w-full"
               id="stud_aadhaar_no"
-              placeholder=""
+              placeholder="Enter 12-digit Aadhaar Number"
               type="number"
+              onInput={(e) => {
+                if (e.target.value.length > 12) {
+                  e.target.value = e.target.value.slice(0, 12);
+                }
+              }}
             />
           </div>
         </div>
@@ -411,7 +433,7 @@ const RegistrationForm = () => {
           <textarea
             className="form-input mt-1 block w-full"
             id="identification_marks"
-            placeholder=""
+            placeholder="Enter any distinctive marks or features"
           />
         </div>
 
@@ -427,7 +449,7 @@ const RegistrationForm = () => {
             <input
               className="form-input mt-1 block w-full"
               id="mother_name"
-              placeholder=""
+              placeholder="Enter Mother's Name"
             />
           </div>
           <div className="form-group">
@@ -440,13 +462,14 @@ const RegistrationForm = () => {
             <input
               className="form-input mt-1 block w-full"
               id="father_name"
-              placeholder=""
+              placeholder="Enter Father's Name"
             />
           </div>
         </>
 
-        {/* Father's Qualification and Occupation */}
+        {/* Father's Qualification and father_occupation */}
         <div className="flex flex-col sm:flex-row gap-4">
+          {/* //TODO: Add Select Field for Qualification such as Illiterate, Matriculation, Intermediate, Graduation, Post-Graduation */}
           <div className="flex-1 form-group">
             <label
               htmlFor="father_qualification"
@@ -457,20 +480,21 @@ const RegistrationForm = () => {
             <input
               className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
               id="father_qualification"
-              placeholder=""
+              placeholder="Enter Father's Qualification"
             />
           </div>
+          {/* //TODO: Add Select Field for father_occupation such as Businessman, Private Job, Government Job */}
           <div className="flex-1 form-group">
             <label
-              htmlFor="occupation"
+              htmlFor="father_occupation"
               className="block text-sm font-medium text-gray-700"
             >
-              Occupation
+              father_occupation
             </label>
             <input
               className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-              id="occupation"
-              placeholder=""
+              id="father_occupation"
+              placeholder="Enter Father's father_occupation"
             />
           </div>
         </div>
@@ -487,7 +511,7 @@ const RegistrationForm = () => {
             <input
               className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
               id="annual_income"
-              placeholder=""
+              placeholder="Enter Annual Income (in INR)"
             />
           </div>
 
@@ -501,7 +525,7 @@ const RegistrationForm = () => {
             <input
               className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
               id="parent_contact_no"
-              placeholder=""
+              placeholder="Enter Parent's Contact No."
               type="tel"
             />
           </div>
@@ -516,7 +540,7 @@ const RegistrationForm = () => {
             <input
               className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
               id="guardian_contact_no"
-              placeholder=""
+              placeholder="Enter Guardian's Contact No."
               type="tel"
             />
           </div>
@@ -537,6 +561,7 @@ const RegistrationForm = () => {
             <input
               className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
               id="address"
+              placeholder="e.g., John Doe"
             />
           </div>
           <div className="form-group">
@@ -549,7 +574,7 @@ const RegistrationForm = () => {
             <input
               className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
               id="village"
-              placeholder=""
+              placeholder="e.g., Greenfield"
             />
           </div>
 
@@ -566,7 +591,7 @@ const RegistrationForm = () => {
                 <input
                   className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                   id="post"
-                  placeholder=""
+                  placeholder="e.g., Main Post Office"
                 />
               </div>
               <div className="flex-1 form-group">
@@ -579,7 +604,7 @@ const RegistrationForm = () => {
                 <input
                   className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                   id="ps"
-                  placeholder=""
+                  placeholder="e.g., Police Station"
                 />
               </div>
               <div className="flex-1 form-group">
@@ -592,7 +617,7 @@ const RegistrationForm = () => {
                 <input
                   className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                   id="district"
-                  placeholder=""
+                  placeholder="e.g., Downtown"
                 />
               </div>
             </div>
@@ -628,8 +653,13 @@ const RegistrationForm = () => {
                 <input
                   className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                   id="pin_code"
-                  placeholder=""
+                  placeholder="e.g., 123456"
                   type="number"
+                  onInput={(e) => {
+                    if (e.target.value.length > 6) {
+                      e.target.value = e.target.value.slice(0, 6);
+                    }
+                  }}
                 />
               </div>
             </div>
