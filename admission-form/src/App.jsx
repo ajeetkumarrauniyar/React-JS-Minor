@@ -3,10 +3,49 @@
 import { useState } from "react";
 import SchoolLogo from "./assets/logo.jpg";
 
+const states = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+  "Andaman and Nicobar Islands",
+  "Chandigarh",
+  "Dadra and Nagar Haveli and Daman and Diu",
+  "Lakshadweep",
+  "Delhi",
+  "Puducherry",
+];
+
 const RegistrationForm = () => {
   const [serialNumber, setSerialNumber] = useState(1);
   const [selectedClass, setSelectedClass] = useState("");
   const [selectedSection, setSelectedSection] = useState("");
+  const [selectedState, setSelectedState] = useState("Bihar");
+  const [photo, setPhoto] = useState(null);
 
   const addNewEntry = () => {
     // Logic to add a new entry goes here...
@@ -45,7 +84,7 @@ const RegistrationForm = () => {
     const dayAndDate = `${month} ${date}, ${year}`;
     return dayAndDate;
   };
-  
+
   const handleClassChange = (event) => {
     const classValue = event.target.value;
     setSelectedClass(classValue);
@@ -57,6 +96,10 @@ const RegistrationForm = () => {
     } else {
       setSelectedSection(""); // Reset Section if no class is selected or invalid value
     }
+  };
+
+  const handlePhotoChange = (event) => {
+    setPhoto(event.target.files[0]);
   };
 
   return (
@@ -183,49 +226,85 @@ const RegistrationForm = () => {
         </div>
 
         {/* Student Details */}
-        <div>
-          <label
-            htmlFor="student_name"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Name of the Student
-          </label>
-          <input
-            className="form-input mt-1 block w-full"
-            id="student_name"
-            placeholder=""
-          />
-        </div>
-
-        {/* Student Contact Details */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex-1">
-            <label
-              htmlFor="stud_phone_no"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Phone No.
-            </label>
-            <input
-              className="form-input mt-1 block w-full"
-              id="stud_phone_no"
-              placeholder=""
-              type="tel"
-            />
+          <div className="flex flex-col gap-4 sm:w-3/4">
+            <div className="flex-1">
+              <label
+                htmlFor="student_name"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Name of the Student
+              </label>
+              <input
+                className="form-input mt-1 block w-full"
+                id="student_name"
+                placeholder=""
+              />
+            </div>
+
+            {/* Student Contact Details */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex-1">
+                <label
+                  htmlFor="stud_phone_no"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Phone No.
+                </label>
+                <input
+                  className="form-input mt-1 block w-full"
+                  id="stud_phone_no"
+                  placeholder=""
+                  type="tel"
+                />
+              </div>
+
+              <div className="flex-1">
+                <label
+                  htmlFor="stud_email"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  E-mail Address
+                </label>
+                <input
+                  className="form-input mt-1 block w-full"
+                  id="stud_email"
+                  placeholder="abc@example.com"
+                  type="email"
+                />
+              </div>
+            </div>
           </div>
-          <div className="flex-1">
+
+          {/* Photo Upload */}
+          <div className="flex flex-col items-center sm:ml-4">
             <label
-              htmlFor="stud_email"
-              className="block text-sm font-medium text-gray-700"
+              htmlFor="photo"
+              className="text-sm font-medium text-gray-700 mb-2"
             >
-              E-mail Address
+              Passport Size Photo
             </label>
-            <input
-              className="form-input mt-1 block w-full"
-              id="stud_email"
-              placeholder="abc@example.com"
-              type="email"
-            />
+            <div className="relative w-32 h-32 border border-gray-300 rounded-md overflow-hidden">
+              <input
+                type="file"
+                id="photo"
+                className="absolute inset-0 opacity-0 cursor-pointer"
+                accept="image/*"
+                onChange={handlePhotoChange}
+              />
+              {!photo && (
+                <div className="flex items-center justify-center w-full h-full text-gray-500">
+                  Upload Photo
+                </div>
+              )}
+              {photo && (
+                <img
+                  src={URL.createObjectURL(photo)}
+                  alt="Preview"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
+            </div>
           </div>
         </div>
 
@@ -509,13 +588,18 @@ const RegistrationForm = () => {
                 >
                   State
                 </label>
-                <input
-                  className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                <select
                   id="state"
-                  placeholder=""
-                  defaultValue="Bihar"
-                  type="text"
-                />
+                  className="form-select mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  value={selectedState}
+                  onChange={(e) => setSelectedState(e.target.value)}
+                >
+                  {states.map((state) => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="flex-1">
                 <label
@@ -540,13 +624,13 @@ const RegistrationForm = () => {
           {/* Signatures Section */}
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-6">
             <div className="flex-1">
-              <p className="text-sm font-medium text-gray-700 mb-2">
+              <p className="text-sm font-medium text-gray-700 mb-10">
                 Student Signature
               </p>
               <p className="border-t-2 border-gray-300 pt-2">Date:</p>
             </div>
             <div className="flex-1">
-              <p className="text-sm font-medium text-gray-700 mb-2">
+              <p className="text-sm font-medium text-gray-700 mb-10">
                 Parent/Guardian Signature
               </p>
               <p className="border-t-2 border-gray-300 pt-2">Date:</p>

@@ -1,4 +1,13 @@
-const TaskList = () => {
+import { useState } from "react";
+import { useTodo } from "../contexts/TodoContext";
+
+const TaskList = ({ todo }) => {
+  const [tasks, setTasks] = useState();
+  const [isTaskEditable, setIsTaskEditable] = useState(false);
+  const [todoMessages, setTodoMessages] = useState(todo.todo)
+
+  const { updateTodo, deleteTodo, toggleCompleteTodo } = useTodo;
+
   return (
     <ul className="space-y-3">
       <li className="flex items-center bg-gray-50 p-3 rounded shadow-sm ">
@@ -6,9 +15,11 @@ const TaskList = () => {
           type="checkbox"
           className="mr-3 form-checkbox h-5 w-5 text-indigo-600 "
         />
-        <input type="text" className="flex-grow text-gray-800 bg-gray-50 focus:outline-none "/>
-          {/* Complete Todo App UI
-        </input> */}
+        <input
+          type="text"
+          className="flex-grow text-gray-800 bg-gray-50 focus:outline-none "
+        />
+        {/* Complete Todo App UI*/}
         <button className="text-blue-500 hover:text-blue-600 mr-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
