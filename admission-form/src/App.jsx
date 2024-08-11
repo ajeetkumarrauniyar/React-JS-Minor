@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SchoolLogo from "./assets/logo.jpg";
 
 const states = [
@@ -42,14 +42,16 @@ const states = [
 
 const RegistrationForm = () => {
   const [serialNumber, setSerialNumber] = useState(1);
+  const [admissionNo, setAdmissionNo] = useState("");
   const [selectedClass, setSelectedClass] = useState("");
   const [selectedSection, setSelectedSection] = useState("");
   const [selectedState, setSelectedState] = useState("Bihar");
   const [photo, setPhoto] = useState(null);
 
-  const addNewEntry = () => {
-    // Logic to add a new entry goes here...
-
+  const addNewEntry = (e) => {
+    e.preventDefault();
+    const newAdmissionNo = generateAdmissionNo(serialNumber);
+    setAdmissionNo(newAdmissionNo);
     // Increment serial number
     setSerialNumber((prevNumber) => prevNumber + 1);
   };
@@ -101,6 +103,19 @@ const RegistrationForm = () => {
   const handlePhotoChange = (event) => {
     setPhoto(event.target.files[0]);
   };
+
+  const generateAdmissionNo = () => {
+    const prefix = "NCS";
+    const year = new Date().getFullYear();
+    const formattedSerialNo = String(serialNumber).padStart(3, "0"); // Format the serial number with leading zeros
+
+    return `${prefix}-${year}-${formattedSerialNo}`;
+  };
+
+  useEffect(() => {
+    const newAdmissionNo = generateAdmissionNo(serialNumber);
+    setAdmissionNo(newAdmissionNo);
+  }, [serialNumber]);
 
   return (
     <div className="max-w-3xl mx-auto p-4 print:p-0 print:max-w-none">
@@ -170,7 +185,7 @@ const RegistrationForm = () => {
       <form className="space-y-6 p-4 sm:p-6 bg-white rounded-lg shadow-md">
         {/* Admission Number, Class, Section */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="adm_no"
               className="block text-sm font-medium text-gray-700"
@@ -181,9 +196,11 @@ const RegistrationForm = () => {
               className="form-input mt-1 block w-full"
               id="adm_no"
               placeholder=""
+              value={admissionNo}
+              readOnly
             />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="class"
               className="block text-sm font-medium text-gray-700"
@@ -205,7 +222,7 @@ const RegistrationForm = () => {
               <option value="6">Class 6</option>
             </select>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="section"
               className="block text-sm font-medium text-gray-700"
@@ -228,7 +245,7 @@ const RegistrationForm = () => {
         {/* Student Details */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-4 sm:w-3/4">
-            <div className="flex-1">
+            <div className="flex-1 form-group">
               <label
                 htmlFor="student_name"
                 className="block text-sm font-medium text-gray-700"
@@ -244,7 +261,7 @@ const RegistrationForm = () => {
 
             {/* Student Contact Details */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1">
+              <div className="flex-1 form-group">
                 <label
                   htmlFor="stud_phone_no"
                   className="block text-sm font-medium text-gray-700"
@@ -259,7 +276,7 @@ const RegistrationForm = () => {
                 />
               </div>
 
-              <div className="flex-1">
+              <div className="flex-1 form-group">
                 <label
                   htmlFor="stud_email"
                   className="block text-sm font-medium text-gray-700"
@@ -277,7 +294,7 @@ const RegistrationForm = () => {
           </div>
 
           {/* Photo Upload */}
-          <div className="flex flex-col items-center sm:ml-4">
+          <div className="flex flex-col items-center sm:ml-4 form-group">
             <label
               htmlFor="photo"
               className="text-sm font-medium text-gray-700 mb-2"
@@ -311,7 +328,7 @@ const RegistrationForm = () => {
         {/* Date of Birth and Aadhaar Number */}
         <div className="flex flex-col sm:flex-row gap-4">
           {/* Sex */}
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="sex"
               className="block text-sm font-medium text-gray-700"
@@ -352,7 +369,7 @@ const RegistrationForm = () => {
             </div>
           </div>
           {/* DOB */}
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="dob"
               className="block text-sm font-medium text-gray-700"
@@ -367,7 +384,7 @@ const RegistrationForm = () => {
             />
           </div>
           {/* Aadhaar No */}
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="stud_aadhaar_no"
               className="block text-sm font-medium text-gray-700"
@@ -384,7 +401,7 @@ const RegistrationForm = () => {
         </div>
 
         {/* Identification Marks */}
-        <div>
+        <div className="form-group">
           <label
             htmlFor="identification_marks"
             className="block text-sm font-medium text-gray-700"
@@ -400,7 +417,7 @@ const RegistrationForm = () => {
 
         {/* Parent/Guardian Details */}
         <>
-          <div>
+          <div className="form-group">
             <label
               htmlFor="mother_name"
               className="block text-sm font-medium text-gray-700"
@@ -413,7 +430,7 @@ const RegistrationForm = () => {
               placeholder=""
             />
           </div>
-          <div>
+          <div className="form-group">
             <label
               htmlFor="father_name"
               className="block text-sm font-medium text-gray-700"
@@ -430,7 +447,7 @@ const RegistrationForm = () => {
 
         {/* Father's Qualification and Occupation */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="father_qualification"
               className="block text-sm font-medium text-gray-700"
@@ -443,7 +460,7 @@ const RegistrationForm = () => {
               placeholder=""
             />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="occupation"
               className="block text-sm font-medium text-gray-700"
@@ -460,7 +477,7 @@ const RegistrationForm = () => {
 
         {/* Family Income and Contact Numbers */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="annual_income"
               className="block text-sm font-medium text-gray-700"
@@ -474,7 +491,7 @@ const RegistrationForm = () => {
             />
           </div>
 
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="parent_contact_no"
               className="block text-sm font-medium text-gray-700"
@@ -489,7 +506,7 @@ const RegistrationForm = () => {
             />
           </div>
 
-          <div className="flex-1">
+          <div className="flex-1 form-group">
             <label
               htmlFor="guardian_contact_no"
               className="block text-sm font-medium text-gray-700"
@@ -507,7 +524,7 @@ const RegistrationForm = () => {
 
         {/* Address Details */}
         <div className="space-y-4">
-          <div>
+          <div className="form-group">
             <p className="text-sm font-medium text-gray-700">
               Present Address:
             </p>
@@ -522,7 +539,7 @@ const RegistrationForm = () => {
               id="address"
             />
           </div>
-          <div>
+          <div className="form-group">
             <label
               htmlFor="village"
               className="block text-sm font-medium text-gray-700"
@@ -539,7 +556,7 @@ const RegistrationForm = () => {
           {/* Additional Address Details */}
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1">
+              <div className="flex-1 form-group">
                 <label
                   htmlFor="post"
                   className="block text-sm font-medium text-gray-700"
@@ -552,7 +569,7 @@ const RegistrationForm = () => {
                   placeholder=""
                 />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 form-group">
                 <label
                   htmlFor="ps"
                   className="block text-sm font-medium text-gray-700"
@@ -565,7 +582,7 @@ const RegistrationForm = () => {
                   placeholder=""
                 />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 form-group">
                 <label
                   htmlFor="district"
                   className="block text-sm font-medium text-gray-700"
@@ -581,7 +598,7 @@ const RegistrationForm = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1">
+              <div className="flex-1 form-group">
                 <label
                   htmlFor="state"
                   className="block text-sm font-medium text-gray-700"
@@ -601,7 +618,7 @@ const RegistrationForm = () => {
                   ))}
                 </select>
               </div>
-              <div className="flex-1">
+              <div className="flex-1 form-group">
                 <label
                   htmlFor="pin_code"
                   className="block text-sm font-medium text-gray-700"
@@ -623,13 +640,13 @@ const RegistrationForm = () => {
         <div className="mt-6 space-y-6">
           {/* Signatures Section */}
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-6">
-            <div className="flex-1">
+            <div className="flex-1 form-group">
               <p className="text-sm font-medium text-gray-700 mb-10">
                 Student Signature
               </p>
               <p className="border-t-2 border-gray-300 pt-2">Date:</p>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 form-group">
               <p className="text-sm font-medium text-gray-700 mb-10">
                 Parent/Guardian Signature
               </p>

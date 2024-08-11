@@ -2,13 +2,14 @@
   /* Set the page size and margins */
   @page {
     size: A4;
-    margin: 5cm;
+    margin: 10cm;
   }
 
   /* Adjust font sizes and spacing */
   body {
     font-size: 12pt;
     line-height: 1.2;
+    margin-top: 10pt;
   }
 
   h1 {
@@ -58,11 +59,17 @@
   }
 
   /* Add page breaks where necessary */
-  .page-break-before {
+  /* .page-break-before {
     page-break-before: always;
   }
 
   .page-break-after {
     page-break-after: always;
+  } */
+
+  /* Prevent page break inside a form group */
+  .form-group {
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
