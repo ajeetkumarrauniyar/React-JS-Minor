@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
   const login = async () => {
     await checkUser();
   };
-  
+
   const logout = async () => {
     await authService.logout();
     setUser(null);
