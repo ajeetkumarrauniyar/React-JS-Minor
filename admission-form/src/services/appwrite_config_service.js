@@ -14,6 +14,23 @@ class ConfigService {
     this.storage = new Storage(this.client);
   }
 
+  async getLastStudent() {
+    try {
+      const response = await this.databases.listDocuments(
+        config.AppwriteDatabaseId,
+        config.AppwriteCollectionId
+      );
+      if (response.total > 0) {
+        return response.total;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.error("Appwrite service :: getLastStudent :: error", error);
+      throw error;
+    }
+  }
+
   async createStudent(studentData) {
     try {
       return await this.databases.createDocument(
@@ -24,14 +41,11 @@ class ConfigService {
       );
     } catch (error) {
       console.error("Appwrite service :: createStudent :: error", error);
-      if (error.code === 400) {
-        // Bad Request - likely missing required fields
-        throw new Error(`Failed to create student: ${error.message}`);
-      }
       throw error;
     }
   }
 
+  // Admin-only methods
   async getStudent(id) {
     try {
       return await this.databases.getDocument(
@@ -57,7 +71,6 @@ class ConfigService {
     }
   }
 
-  // Admin-only methods
   async searchStudents(query) {
     try {
       return await this.databases.listDocuments(
