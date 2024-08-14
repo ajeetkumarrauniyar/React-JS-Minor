@@ -296,7 +296,7 @@ const RegistrationForm = ({ searchResults }) => {
                 </label>
                 <select
                   id="class"
-                  className="form-select mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="form-input mt-1 block w-full"
                   value={selectedClass}
                   onChange={handleClassChange}
                 >
@@ -318,7 +318,7 @@ const RegistrationForm = ({ searchResults }) => {
                 </label>
                 <select
                   id="section"
-                  className="form-select mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="form-input mt-1 block w-full"
                   value={selectedSection}
                   onChange={(e) => setSelectedSection(e.target.value)} // Optionally handle manual changes
                 >
@@ -597,7 +597,7 @@ const RegistrationForm = ({ searchResults }) => {
                 <select
                   id="father_qualification"
                   name="father_qualification"
-                  className="form-select mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="form-input mt-1 block w-full"
                   value={fatherQualification}
                   onChange={(e) => setFatherQualification(e.target.value)}
                 >
@@ -620,7 +620,7 @@ const RegistrationForm = ({ searchResults }) => {
                 <select
                   id="father_occupation"
                   name="father_occupation"
-                  className="form-select mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="form-input mt-1 block w-full"
                   value={fatherOccupation}
                   onChange={(e) => setFatherOccupation(e.target.value)}
                 >
@@ -645,7 +645,7 @@ const RegistrationForm = ({ searchResults }) => {
                 <input
                   id="annual_income"
                   name="annual_income"
-                  className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="form-input mt-1 block w-full"
                   placeholder="Enter Annual Income (in INR)"
                   value={annualIncome}
                   onChange={(e) => setAnnualIncome(e.target.value)}
@@ -662,7 +662,7 @@ const RegistrationForm = ({ searchResults }) => {
                 <input
                   id="parent_contact_no"
                   name="parent_contact_no"
-                  className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="form-input mt-1 block w-full"
                   placeholder="Enter Parent's Contact No."
                   type="tel"
                   value={parentContactNo}
@@ -680,7 +680,7 @@ const RegistrationForm = ({ searchResults }) => {
                 <input
                   id="guardian_contact_no"
                   name="guardian_contact_no"
-                  className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="form-input mt-1 block w-full"
                   placeholder="Enter Guardian's Contact No."
                   type="tel"
                   value={guardianContactNo}
@@ -704,7 +704,7 @@ const RegistrationForm = ({ searchResults }) => {
                 <input
                   id="careOf"
                   name="careOf"
-                  className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="form-input mt-1 block w-full"
                   placeholder="e.g., John Doe"
                   value={careOf}
                   onChange={(e) => setCareOf(e.target.value)}
@@ -720,7 +720,7 @@ const RegistrationForm = ({ searchResults }) => {
                 <input
                   id="village"
                   name="village"
-                  className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="form-input mt-1 block w-full"
                   placeholder="e.g., Greenfield"
                   value={village}
                   onChange={(e) => setVillage(e.target.value)}
@@ -740,7 +740,7 @@ const RegistrationForm = ({ searchResults }) => {
                     <input
                       id="post"
                       name="post"
-                      className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                      className="form-input mt-1 block w-full"
                       placeholder="e.g., Main Post Office"
                       value={post}
                       onChange={(e) => setPost(e.target.value)}
@@ -756,7 +756,7 @@ const RegistrationForm = ({ searchResults }) => {
                     <input
                       id="police_station"
                       name="police_station"
-                      className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                      className="form-input mt-1 block w-full"
                       placeholder="e.g., Police Station"
                       value={policeStation}
                       onChange={(e) => setPoliceStation(e.target.value)}
@@ -772,7 +772,7 @@ const RegistrationForm = ({ searchResults }) => {
                     <input
                       id="district"
                       name="district"
-                      className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                      className="form-input mt-1 block w-full"
                       placeholder="e.g., Downtown"
                       value={district}
                       onChange={(e) => setDistrict(e.target.value)}
@@ -791,7 +791,7 @@ const RegistrationForm = ({ searchResults }) => {
                     <select
                       id="state"
                       name="state"
-                      className="form-select mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                      className="form-input mt-1 block w-full"
                       value={selectedState}
                       onChange={(e) => setSelectedState(e.target.value)}
                     >
@@ -812,7 +812,7 @@ const RegistrationForm = ({ searchResults }) => {
                     <input
                       id="pin_code"
                       name="pin_code"
-                      className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                      className="form-input mt-1 block w-full"
                       placeholder="e.g., 123456"
                       type="number"
                       value={pinCode}
