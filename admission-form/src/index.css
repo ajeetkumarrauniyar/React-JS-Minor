@@ -157,4 +157,18 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Asterisk Sign  */
+.required-field {
+  position: relative;
+}
+
+.required-field::after {
+  content: "*";
+  color: red;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }

@@ -2,7 +2,7 @@
   /* Set the page size and margins */
   @page {
     size: A4;
-    margin: 0.5in;
+    margin: 0.25in;
 
     @top-center {
       content: "NCS ACADEMY Registration Form Ajeet";
@@ -127,7 +127,7 @@
   select option:checked {
     color: #000 !important;
   }
-  
+
   /* Remove shadows and background colors */
   .shadow-lg,
   .shadow-md {

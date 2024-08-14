@@ -272,12 +272,12 @@ const RegistrationForm = ({ searchResults }) => {
           >
             {/* Admission Number, Class, Section */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1 form-group">
+              <div className="flex-1 form-group required-field">
                 <label
                   htmlFor="adm_no"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Adm. No.
+                  Admission No.
                 </label>
                 <input
                   className="form-input mt-1 block w-full"
@@ -285,6 +285,7 @@ const RegistrationForm = ({ searchResults }) => {
                   placeholder=""
                   value={admissionNumber}
                   readOnly
+                  required
                 />
               </div>
               <div className="flex-1 form-group">
@@ -332,7 +333,7 @@ const RegistrationForm = ({ searchResults }) => {
             {/* Student Details */}
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex flex-col gap-4 sm:w-3/4">
-                <div className="flex-1 form-group">
+                <div className="flex-1 form-group required-field">
                   <label
                     htmlFor="student_name"
                     className="block text-sm font-medium text-gray-700"
@@ -371,7 +372,7 @@ const RegistrationForm = ({ searchResults }) => {
                     />
                   </div>
 
-                  <div className="flex-1 form-group">
+                  <div className="flex-1 form-group required-field">
                     <label
                       htmlFor="student_email"
                       className="block text-sm font-medium text-gray-700"
@@ -386,6 +387,7 @@ const RegistrationForm = ({ searchResults }) => {
                       type="email"
                       value={studentEmail}
                       onChange={(e) => setStudentEmail(e.target.value)}
+                      required
                     />
                   </div>
                 </div>
@@ -488,7 +490,7 @@ const RegistrationForm = ({ searchResults }) => {
                 </div>
               </div>
               {/* Date of Birth */}
-              <div className="flex-1 form-group">
+              <div className="flex-1 form-group required-field">
                 <label
                   htmlFor="date_of_birth"
                   className="block text-sm font-medium text-gray-700"
@@ -503,10 +505,11 @@ const RegistrationForm = ({ searchResults }) => {
                   type="date"
                   value={dateOfBirth}
                   onChange={(e) => setDateOfBirth(e.target.value)}
+                  required
                 />
               </div>
               {/* Aadhaar No */}
-              <div className="flex-1 form-group">
+              <div className="flex-1 form-group required-field">
                 <label
                   htmlFor="stud_aadhaar_no"
                   className="block text-sm font-medium text-gray-700"
@@ -526,6 +529,7 @@ const RegistrationForm = ({ searchResults }) => {
                     }
                     setStudentAadhaarNo(e.target.value);
                   }}
+                  required
                 />
               </div>
             </div>
@@ -550,7 +554,7 @@ const RegistrationForm = ({ searchResults }) => {
 
             {/* Parent/Guardian Details */}
             <>
-              <div className="form-group">
+              <div className="form-group required-field">
                 <label
                   htmlFor="mother_name"
                   className="block text-sm font-medium text-gray-700"
@@ -564,9 +568,10 @@ const RegistrationForm = ({ searchResults }) => {
                   placeholder="Enter Mother's Name"
                   value={motherName}
                   onChange={(e) => setMotherName(e.target.value)}
+                  required
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group required-field">
                 <label
                   htmlFor="father_name"
                   className="block text-sm font-medium text-gray-700"
@@ -580,6 +585,7 @@ const RegistrationForm = ({ searchResults }) => {
                   placeholder="Enter Father's Name"
                   value={fatherName}
                   onChange={(e) => setFatherName(e.target.value)}
+                  required
                 />
               </div>
             </>
@@ -652,7 +658,7 @@ const RegistrationForm = ({ searchResults }) => {
                 />
               </div>
 
-              <div className="flex-1 form-group">
+              <div className="flex-1 form-group required-field">
                 <label
                   htmlFor="parent_contact_no"
                   className="block text-sm font-medium text-gray-700"
@@ -667,6 +673,7 @@ const RegistrationForm = ({ searchResults }) => {
                   type="tel"
                   value={parentContactNo}
                   onChange={(e) => setParentContactNo(e.target.value)}
+                  required
                 />
               </div>
 
@@ -802,7 +809,7 @@ const RegistrationForm = ({ searchResults }) => {
                       ))}
                     </select>
                   </div>
-                  <div className="flex-1 form-group">
+                  <div className="flex-1 form-group required-field">
                     <label
                       htmlFor="pin_code"
                       className="block text-sm font-medium text-gray-700"
@@ -822,6 +829,7 @@ const RegistrationForm = ({ searchResults }) => {
                           e.target.value = e.target.value.slice(0, 6);
                         }
                       }}
+                      required
                     />
                   </div>
                 </div>
