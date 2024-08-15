@@ -5,7 +5,7 @@ import configService from "../services/appwrite_config_service.js";
 import states from "../states.js";
 import PropTypes from "prop-types";
 
-const RegistrationForm = ({ searchResults }) => {
+const RegistrationForm = ({ searchResults, selectedStudent }) => {
   const [serialNumber, setSerialNumber] = useState(null);
   const [admissionNumber, setAdmissionNumber] = useState("");
   const [selectedClass, setSelectedClass] = useState("");
@@ -178,6 +178,37 @@ const RegistrationForm = ({ searchResults }) => {
   const printForm = () => {
     window.print();
   };
+
+  // Update state when selectedStudent changes
+  useEffect(() => {
+    if (selectedStudent) {
+      setAdmissionNumber(selectedStudent.admission_no || "");
+      setSelectedClass(selectedStudent.class || "");
+      setSelectedSection(selectedStudent.section || "");
+      setStudentFullName(selectedStudent.student_name || "");
+      setStudentPhoneNo(selectedStudent.student_phone_no || "");
+      setStudentEmail(selectedStudent.student_email || "");
+      setSex(selectedStudent.sex || "");
+      setDateOfBirth(selectedStudent.date_of_birth || "");
+      setStudentAadhaarNo(selectedStudent.stud_aadhaar_no || "");
+      setIdentificationMarks(selectedStudent.identification_marks || "");
+      setMotherName(selectedStudent.mother_name || "");
+      setFatherName(selectedStudent.father_name || "");
+      setFatherQualification(selectedStudent.father_qualification || "");
+      setFatherOccupation(selectedStudent.father_occupation || "");
+      setAnnualIncome(selectedStudent.annual_income || "");
+      setParentContactNo(selectedStudent.parent_contact_no || "");
+      setGuardianContactNo(selectedStudent.guardian_contact_no || "");
+      setCareOf(selectedStudent.address || "");
+      setVillage(selectedStudent.village || "");
+      setPost(selectedStudent.post || "");
+      setPoliceStation(selectedStudent.police_station || "");
+      setDistrict(selectedStudent.district || "");
+      setSelectedState(selectedStudent.state || "Bihar");
+      setPinCode(selectedStudent.pin_code || "");
+      // Update other fields as necessary
+    }
+  }, [selectedStudent]);
 
   // const handleDelete = async (id) => {
   //   if (window.confirm("Are you sure you want to delete this record?")) {
@@ -876,17 +907,43 @@ const RegistrationForm = ({ searchResults }) => {
         </div>
       </div>
       {searchResults.length > 0 && (
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">Search Results</h2>
-          <div className="space-y-4">
+        <div className="mt-8 bg-gray-100 p-6 rounded-lg shadow-lg justify-center items-center">
+          <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">
+            Search Results
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {searchResults.map((student) => (
-              <div key={student.$id} className="bg-white p-4 rounded shadow">
-                <h3 className="text-lg font-semibold">
-                  Student Name: {student.student_name}
+              <div
+                key={student.$id}
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200"
+              >
+                <h3 className="text-xl font-semibold mb-3 text-blue-600">
+                  {student.student_name}
                 </h3>
-                <p>Admission No: {student.admission_no}</p>
-                <p>Aadhaar No: {student.stud_aadhaar_no}</p>
-                <p>Father's No: {student.parent_contact_no}</p>
+                <div className="space-y-2 text-gray-700">
+                  <p className="flex items-center">
+                    <span className="font-medium mr-2">Admission No:</span>
+                    <span className="bg-gray-100 px-2 py-1 rounded">
+                      {student.admission_no}
+                    </span>
+                  </p>
+                  <p className="flex items-center">
+                    <span className="font-medium mr-2">Aadhaar No:</span>
+                    <span className="bg-gray-100 px-2 py-1 rounded">
+                      {student.stud_aadhaar_no || "N/A"}
+                    </span>
+                  </p>
+                  <p className="flex items-center">
+                    <span className="font-medium mr-2">Father's No:</span>
+                    <span className="bg-gray-100 px-2 py-1 rounded">
+                      {student.parent_contact_no || "N/A"}
+                    </span>
+                  </p>
+                </div>
+                {/* // TODO: Implement the functionality to select the data and update the relevant result in the reg. form */}
+                <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-300">
+                  Select
+                </button>
               </div>
             ))}
           </div>
@@ -897,13 +954,8 @@ const RegistrationForm = ({ searchResults }) => {
 };
 
 RegistrationForm.propTypes = {
-  searchResults: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      // Define other fields expected in the searchResults objects
-    })
-  ).isRequired,
+  searchResults: PropTypes.array.isRequired,
+  selectedStudent: PropTypes.object,
 };
 
 export default RegistrationForm;

@@ -15,19 +15,26 @@ import Sidebar from "./components/Sidebar";
 function App() {
   const { user } = useAuth();
   const [searchResults, setSearchResults] = useState([]);
+  const [selectedStudent, setSelectedStudent] = useState(null);
 
   const handleSearchResults = (results) => {
     setSearchResults(results);
+    setSelectedStudent(results.length > 0 ? results[0] : null);
   };
 
   return (
     <Router>
-      <div className="flex">
-        <div className="flex-1">
+      <div className="flex print:block">
+        <div className="flex-1 print:w-full">
           <Routes>
             <Route
               path="/"
-              element={<RegistrationForm searchResults={searchResults} />}
+              element={
+                <RegistrationForm
+                  searchResults={searchResults}
+                  selectedStudent={selectedStudent}
+                />
+              }
             />
             <Route
               path="/admin-login"
@@ -38,7 +45,10 @@ function App() {
               path="/admin"
               element={
                 <PrivateRoute>
-                  <RegistrationForm searchResults={searchResults} />
+                  <RegistrationForm
+                    searchResults={searchResults}
+                    selectedStudent={selectedStudent}
+                  />
                 </PrivateRoute>
               }
             />
