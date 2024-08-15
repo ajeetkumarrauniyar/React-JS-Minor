@@ -74,7 +74,15 @@ const RegistrationForm = ({ searchResults, selectedStudent }) => {
   };
 
   const handlePhotoChange = (event) => {
-    setPhoto(event.target.files[0]);
+    const file = event.target.files[0];
+    const fileSizeInMB = file.size / (1024 * 1024);
+
+    if (fileSizeInMB > 2) {
+      alert("File size exceeds 2 MB. Please upload a smaller file.");
+      return;
+    }
+
+    setPhoto(file);
   };
 
   // Fetch the last document when the component mounts

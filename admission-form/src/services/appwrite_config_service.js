@@ -121,6 +121,10 @@ class ConfigService {
 
   // Photo upload method
   async uploadPhoto(file) {
+    if (file.size / (1024 * 1024) > 2) {
+      throw new Error("File size exceeds 2 MB.");
+    }
+    
     try {
       return await this.storage.createFile(
         config.AppwriteBucketId,
