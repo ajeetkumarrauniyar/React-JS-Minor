@@ -40,7 +40,7 @@ function App() {
               path="/admin-login"
               element={user ? <Navigate to="/admin" /> : <AdminLogin />}
             />
-            <Route path="/student" element={<GetAllStudents />} />
+            <Route path="/all-students" element={<GetAllStudents />} />
             <Route
               path="/admin"
               element={
