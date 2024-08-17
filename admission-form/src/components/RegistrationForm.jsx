@@ -1,11 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from "react";
 import SchoolLogo from "../assets/logo.jpg";
+import { useAuth } from "../contexts/AuthContext";
 import configService from "../services/appwrite_config_service.js";
 import states from "../states.js";
 import PropTypes from "prop-types";
 
 const RegistrationForm = ({ searchResults, selectedStudent }) => {
+  const { user } = useAuth();
+
   const [serialNumber, setSerialNumber] = useState(null);
   const [admissionNumber, setAdmissionNumber] = useState("");
   const [selectedClass, setSelectedClass] = useState("");
@@ -122,9 +125,31 @@ const RegistrationForm = ({ searchResults, selectedStudent }) => {
     return `${prefix}${year}${formattedSerialNo}`;
   };
 
+  const createStudentWithRetries = async (data) => {
+    let retries = 3;
+    while (retries > 0) {
+      try {
+        return await configService.createStudent(data);
+      } catch (error) {
+        if (error.code === 409) {
+          console.log(
+            "Conflict detected, retrying with new serial number and admission number"
+          );
+          data.serialNumber++;
+          data.admission_no = generateAdmissionNumber(data.serialNumber);
+          retries--;
+        } else {
+          throw error;
+        }
+      }
+    }
+    return null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Collect form data
       const studentData = {
         serialNumber: serialNumber,
         admission_no: admissionNumber,
@@ -153,20 +178,60 @@ const RegistrationForm = ({ searchResults, selectedStudent }) => {
         pin_code: pinCode,
       };
 
-      // Upload photo if exists
+      // Upload photo if it exists
       if (photo) {
-        const uploadedFile = await configService.uploadPhoto(photo);
-        studentData.photo = uploadedFile.$id;
+        try {
+          const uploadedFile = await configService.uploadPhoto(photo);
+          studentData.photo = uploadedFile.$id;
+        } catch (uploadError) {
+          console.error("Error uploading photo:", uploadError);
+          alert("Error uploading photo. Please try again.");
+          return;
+        }
       }
 
-      // Create student document
-      await configService.createStudent(studentData);
+      // Create student document with retries
+      const createdStudent = await createStudentWithRetries(studentData);
+      if (!createdStudent) {
+        throw new Error("Failed to create student after multiple attempts");
+      }
 
-      // Increment serial number for next entry
-      setSerialNumber((prevNumber) => prevNumber + 1);
-      setAdmissionNumber(generateAdmissionNumber(serialNumber + 1));
+      // Check if the user is logged in before incrementing the serial number
+      if (user) {
+        // Increment serial number for next entry
+        setSerialNumber((prevNumber) => {
+          const newSerialNumber = prevNumber + 1;
+          setAdmissionNumber(generateAdmissionNumber(newSerialNumber));
+          return newSerialNumber;
+        });
+      }
 
       alert("Student registered successfully!");
+
+      // Clear the form fields
+      setSelectedClass("");
+      setSelectedSection("");
+      setStudentFullName("");
+      setStudentPhoneNo("");
+      setStudentEmail("");
+      setSex("");
+      setDateOfBirth("");
+      setStudentAadhaarNo("");
+      setIdentificationMarks("");
+      setMotherName("");
+      setFatherName("");
+      setFatherQualification("");
+      setFatherOccupation("");
+      setAnnualIncome("");
+      setParentContactNo("");
+      setGuardianContactNo("");
+      setCareOf("");
+      setVillage("");
+      setPost("");
+      setPoliceStation("");
+      setDistrict("");
+      setSelectedState("");
+      setPinCode("");
       setPhoto(null);
     } catch (error) {
       console.error("Error registering student:", error);
