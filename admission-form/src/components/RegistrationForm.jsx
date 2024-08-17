@@ -711,10 +711,11 @@ const RegistrationForm = ({ searchResults, selectedStudent }) => {
                   value={fatherQualification}
                   onChange={(e) => setFatherQualification(e.target.value)}
                 >
+                  <option value="">Select Qualification</option>
                   <option value="Non-matriculation">Non Matriculation</option>
                   <option value="Matriculation">Matriculation</option>
-                  <option value="Intermediate">Intermediate</option>
                   <option value="Graduation">Graduation</option>
+                  <option value="Intermediate">Intermediate</option>
                   <option value="Post-graduation">Post Graduation</option>
                 </select>
               </div>
@@ -734,6 +735,7 @@ const RegistrationForm = ({ searchResults, selectedStudent }) => {
                   value={fatherOccupation}
                   onChange={(e) => setFatherOccupation(e.target.value)}
                 >
+                  <option value="">Select Occupation</option>
                   <option value="Businessman">Businessman</option>
                   <option value="Private-job">Private Job</option>
                   <option value="Government-job">Government Job</option>
